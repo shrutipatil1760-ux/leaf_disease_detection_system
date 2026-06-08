@@ -14,15 +14,6 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 from disease_info import disease_data
 
-# ---------------------------------
-# PAGE CONFIG
-# ---------------------------------
-
-st.set_page_config(
-    page_title="Leaf Disease Detection",
-    page_icon="🌿",
-    layout="wide"
-)
 
 # ---------------------------------
 # UI TEXT
