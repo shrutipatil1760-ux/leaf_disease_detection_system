@@ -154,34 +154,31 @@ if image is not None:
 
     prediction = model.predict(img)
 
-predicted_index = int(np.argmax(prediction))
-confidence = float(np.max(prediction) * 100)
+    predicted_index = int(np.argmax(prediction))
+    confidence = float(np.max(prediction) * 100)
 
-predicted_class = class_names[predicted_index]
+    predicted_class = class_names[predicted_index]
 
-st.write("Predicted Class:", predicted_class)
-st.write("Confidence:", confidence)
+    st.write("Predicted Class:", predicted_class)
+    st.write("Confidence:", confidence)
 
-if predicted_class in disease_data:
+    if predicted_class in disease_data:
 
-    info = disease_data[predicted_class][language]
+        info = disease_data[predicted_class][language]
 
-    st.subheader(text["disease"])
-    st.success(info["disease"])
+        st.subheader(text["disease"])
+        st.success(info["disease"])
 
-    st.metric(
-        label=text["confidence"],
-        value=f"{confidence:.2f}%"
-    )
+        st.metric(
+            label=text["confidence"],
+            value=f"{confidence:.2f}%"
+        )
 
-    st.subheader(text["solution"])
-    st.info(info["solution"])
+        st.subheader(text["solution"])
+        st.info(info["solution"])
 
-    st.subheader(text["fertilizer"])
-    st.warning(info["fertilizer"])
+        st.subheader(text["fertilizer"])
+        st.warning(info["fertilizer"])
 
-    st.subheader("📋 Technical Prediction")
-    st.code(predicted_class)
-
-else:
-    st.error(f"No information found for: {predicted_class}")
+        st.subheader("📋 Technical Prediction")
+        st.code(predicted_class)
